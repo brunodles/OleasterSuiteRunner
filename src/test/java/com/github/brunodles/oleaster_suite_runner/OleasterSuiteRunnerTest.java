@@ -4,6 +4,7 @@ import com.mscharhag.oleaster.runner.Invokable;
 import com.mscharhag.oleaster.runner.OleasterTest;
 import com.mscharhag.oleaster.runner.suite.Suite;
 import com.mscharhag.oleaster.runner.suite.SuiteBuilder;
+import junit.framework.Assert;
 import org.junit.runner.Description;
 import org.junit.runner.RunWith;
 import org.junit.runner.notification.RunNotifier;
@@ -33,14 +34,17 @@ public class OleasterSuiteRunnerTest {
     private Description description;
     private ArrayList<Description> children;
     private Description child;
+    private static int beforeEachCallsCounter;
     private static int beforeCallsCounter;
 
     public static class TestClass {
+
         {
             describe("outer describe", () -> {
+                before(() -> beforeCallsCounter++);
                 describe("inner describe", () -> {
 
-                    beforeEach(() -> beforeCallsCounter++);
+                    beforeEach(() -> beforeEachCallsCounter++);
 
                     it("inner it", block.apply("inner it"));
 
@@ -183,11 +187,16 @@ public class OleasterSuiteRunnerTest {
 
                 before(() -> {
                     beforeCallsCounter = 0;
+                    beforeEachCallsCounter = 0;
                     runner.run(mock(RunNotifier.class));
                 });
 
                 it("should call beforeEach once for each it child", () -> {
-                    assertEquals(3, beforeCallsCounter);
+                    assertEquals(3, beforeEachCallsCounter);
+                });
+
+                it("should call before one time", () -> {
+                    assertEquals(1, beforeCallsCounter);
                 });
 
 
@@ -198,7 +207,7 @@ public class OleasterSuiteRunnerTest {
     }
 
     private void describeItBlock(int index, String itDescription) {
-        describe("given the child at "+index, () -> {
+        describe("given the child at " + index, () -> {
 
             beforeEach(() -> {
                 child = children.get(index);

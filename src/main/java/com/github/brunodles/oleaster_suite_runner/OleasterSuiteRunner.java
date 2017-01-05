@@ -37,7 +37,7 @@ import java.util.function.Function;
  * OleasterRunner is JUnit runner that lets you write JUnit tests
  * like you write Jasmine tests (a popular Javascript testing framework).
  * {@link com.mscharhag.oleaster.runner.OleasterRunner}
- * I just made a change on It to
+ * I just made a change to improve the output.
  */
 public class OleasterSuiteRunner extends ParentRunner<Suite> {
 
