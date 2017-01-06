@@ -36,6 +36,7 @@ public class OleasterSuiteRunnerTest {
     private Description child;
     private static int beforeEachCallsCounter;
     private static int beforeCallsCounter;
+    private static int innerBeforeCallsCounter;
 
     public static class TestClass {
 
@@ -49,6 +50,9 @@ public class OleasterSuiteRunnerTest {
                     it("inner it", block.apply("inner it"));
 
                     describe("inner describe", () -> {
+
+                        before(() -> innerBeforeCallsCounter++);
+
                         it("deep inner it", block.apply("deep inner it"));
                         it("last inner it", block.apply("deep inner it"));
                     });
@@ -185,7 +189,7 @@ public class OleasterSuiteRunnerTest {
 
             describe("When have beforeEach blocks", () -> {
 
-                before(() -> {
+                beforeEach(() -> {
                     beforeCallsCounter = 0;
                     beforeEachCallsCounter = 0;
                     runner.run(mock(RunNotifier.class));
@@ -195,8 +199,12 @@ public class OleasterSuiteRunnerTest {
                     assertEquals(3, beforeEachCallsCounter);
                 });
 
-                it("should call before one time", () -> {
-                    assertEquals(1, beforeCallsCounter);
+                it("should call before once for each it child", () -> {
+                    assertEquals(3, beforeCallsCounter);
+                });
+
+                it("should call innerBefore once for each it child", () -> {
+                    assertEquals(3, innerBeforeCallsCounter);
                 });
 
 
