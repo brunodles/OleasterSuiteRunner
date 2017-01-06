@@ -1,4 +1,4 @@
-package com.github.brunodles.oleaster_suite_runner;
+package com.brunodles.oleaster_suite_runner;
 
 import com.mscharhag.oleaster.runner.Invokable;
 import com.mscharhag.oleaster.runner.OleasterTest;

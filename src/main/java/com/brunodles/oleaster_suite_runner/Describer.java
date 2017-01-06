@@ -1,4 +1,4 @@
-package com.github.brunodles.oleaster_suite_runner;
+package com.brunodles.oleaster_suite_runner;
 
 import com.mscharhag.oleaster.runner.suite.Spec;
 import com.mscharhag.oleaster.runner.suite.Suite;
