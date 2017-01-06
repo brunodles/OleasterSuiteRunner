@@ -1,8 +1,14 @@
-apply plugin: 'java'
-apply plugin: 'maven'
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
 
-group 'com.github.brunodles'
-version '0.1'
+apply plugin: 'java'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -19,34 +25,18 @@ dependencies {
     testCompile "org.mockito:mockito-core:1.+"
 }
 
-
-
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
-
-// To specify a license in the pom:
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
-            }
-        }
-    }
-}
+ext.maven = [
+        group   : "com.brunodles",
+        version : '0.1.0',
+        repo    : "TempRepo",
+        name    : "Oleaster-SuiteRunner",
+        artifact: "oleastersuiterunner",
+        site    : "https://github.com/brunodles/OleasterSuiteRunner",
+        git     : "git@github.com:brunodles/OleasterSuiteRunner.git",
+        tag     : 'git rev-parse --abbrev-ref HEAD'.execute().text.trim()
+]
+ext.maven_publish = [
+        artifact: maven.artifact,
+        name    : maven.name
+]
+apply from: rootProject.file("gradle/publish.gradle")
