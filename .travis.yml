@@ -15,7 +15,7 @@ env:
 before_install:
   - chmod +x gradlew
 
-script: ./gradlew clean build test
+script: ./gradlew --no-daemon clean test
 
 deploy:
   skip_cleanup: true
