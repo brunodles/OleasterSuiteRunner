@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/brunodles/OleasterSuiteRunner.svg?branch=master)](https://travis-ci.org/brunodles/OleasterSuiteRunner)
+
 # Oleaster SuiteRunner
 A jUnit test runner to format Oleaster tests as a suite.
 
@@ -9,7 +11,6 @@ This lib enables you to write tests in BDD style.
 You don't need, this suite runner is just a formatter for the tests and you can continue using the Oleaster.
 
 ## What this lib does?
-
 The default Oleaster runner prints whole strings for each `it` block, something like:
 ```
 * Given a Object, when I do something, with a valid parameter, it should return true
