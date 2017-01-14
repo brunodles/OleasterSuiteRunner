@@ -15,12 +15,12 @@ env:
 before_install:
   - chmod +x gradlew
 
-script: ./gradlew --no-daemon clean test
+script: ./gradlew test
 
 deploy:
   skip_cleanup: true
   provider: script
-  script: ./gradle bintrayUpload
+  script: ./gradlew bintrayUpload
   on:
     branch: master
 
