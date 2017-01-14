@@ -30,7 +30,7 @@ ext.maven = [
         version : '0.1.1',
         repo    : "TempRepo",
         name    : "Oleaster-SuiteRunner",
-        artifact: "oleastersuiterunner",
+        artifact: "oleaster-suiterunner",
         site    : "https://github.com/brunodles/OleasterSuiteRunner",
         git     : "git@github.com:brunodles/OleasterSuiteRunner.git",
         tag     : 'git rev-parse --abbrev-ref HEAD'.execute().text.trim()
