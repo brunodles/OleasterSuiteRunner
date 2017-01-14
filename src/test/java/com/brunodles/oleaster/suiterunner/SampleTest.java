@@ -1,4 +1,4 @@
-package com.brunodles.oleaster_suite_runner;
+package com.brunodles.oleaster.suiterunner;
 
 import com.mscharhag.oleaster.runner.Invokable;
 import org.junit.runner.RunWith;
@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
-import static com.mscharhag.oleaster.runner.StaticRunnerSupport.beforeEach;
-import static com.mscharhag.oleaster.runner.StaticRunnerSupport.describe;
-import static com.mscharhag.oleaster.runner.StaticRunnerSupport.it;
+import static com.mscharhag.oleaster.runner.StaticRunnerSupport.*;
 
 /**
  * Created by bruno on 11/03/16.

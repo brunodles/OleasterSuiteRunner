@@ -21,13 +21,13 @@ repositories {
 dependencies {
 //    compile 'com.mscharhag.oleaster:oleaster-matcher:0.1.2'
     compile 'com.mscharhag.oleaster:oleaster-runner:0.1.2'
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile "org.mockito:mockito-core:1.+"
+    testCompile 'junit:junit:4.11'
+    testCompile "org.mockito:mockito-core:1.10.19"
 }
 
 ext.maven = [
         group   : "com.brunodles",
-        version : '0.1.0',
+        version : '0.1.1',
         repo    : "TempRepo",
         name    : "Oleaster-SuiteRunner",
         artifact: "oleastersuiterunner",

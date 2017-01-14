@@ -1,4 +1,4 @@
-package com.brunodles.oleaster_suite_runner;
+package com.brunodles.oleaster.suiterunner;
 
 import org.junit.runner.RunWith;
 

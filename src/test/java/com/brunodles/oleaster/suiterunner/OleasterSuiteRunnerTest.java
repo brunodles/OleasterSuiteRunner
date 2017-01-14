@@ -1,10 +1,9 @@
-package com.brunodles.oleaster_suite_runner;
+package com.brunodles.oleaster.suiterunner;
 
 import com.mscharhag.oleaster.runner.Invokable;
 import com.mscharhag.oleaster.runner.OleasterTest;
 import com.mscharhag.oleaster.runner.suite.Suite;
 import com.mscharhag.oleaster.runner.suite.SuiteBuilder;
-import junit.framework.Assert;
 import org.junit.runner.Description;
 import org.junit.runner.RunWith;
 import org.junit.runner.notification.RunNotifier;
