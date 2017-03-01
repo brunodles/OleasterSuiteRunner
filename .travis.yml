@@ -3,10 +3,6 @@ language: java
 jdk:
   - oraclejdk8
 
-branches:
-  only:
-    - master
-
 env:
   global:
     - JAVA7_HOME=/usr/lib/jvm/java-8-oracle
@@ -15,7 +11,7 @@ env:
 before_install:
   - chmod +x gradlew
 
-script: ./gradlew test
+script: ./gradlew test --info
 
 deploy:
   skip_cleanup: true
@@ -23,7 +19,6 @@ deploy:
   script: ./gradlew bintrayUpload
   on:
     branch: master
-    tags: true
 
 notifications:
   email: false
