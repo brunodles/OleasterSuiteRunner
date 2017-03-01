@@ -19,11 +19,16 @@ repositories {
 }
 
 dependencies {
-//    compile 'com.mscharhag.oleaster:oleaster-matcher:0.1.2'
     compile 'com.mscharhag.oleaster:oleaster-runner:0.1.2'
     testCompile 'junit:junit:4.11'
     testCompile "org.mockito:mockito-core:1.10.19"
 }
+
+ext.scripter = [
+        'gradle/scripter.gradle' : 'https://raw.githubusercontent.com/brunodles/GradleHelpers/master/scripter/scripter.gradle',
+        'gradle/publish.gradle' : 'https://raw.githubusercontent.com/brunodles/GradleHelpers/master/publish/single.gradle'
+]
+apply from: rootProject.file("gradle/scripter.gradle")
 
 ext.maven = [
         group   : "com.brunodles",
@@ -34,9 +39,5 @@ ext.maven = [
         site    : "https://github.com/brunodles/OleasterSuiteRunner",
         git     : "git@github.com:brunodles/OleasterSuiteRunner.git",
         tag     : 'git rev-parse --abbrev-ref HEAD'.execute().text.trim()
-]
-ext.maven_publish = [
-        artifact: maven.artifact,
-        name    : maven.name
 ]
 apply from: rootProject.file("gradle/publish.gradle")
