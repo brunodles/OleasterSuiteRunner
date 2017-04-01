@@ -62,12 +62,18 @@ public class StaticRunnerHelperTest {
             when("do something", () -> {});
             on("do something", () -> {});
             with("a parameter", () -> {});
+            then("should do something", () -> {});
+
             xgiven(Boolean.class, () -> {});
             xgiven("Another object", () -> {});
             xcontext("do something", () -> {});
             xwhen("do something", () -> {});
             xon("do something", () -> {});
             xwith("a parameter", () -> {});
+            xthen("should do something else", () -> {});
+
+            xdescribe("a text", () -> {});
+            xit("should something", () -> {});
         }
     }
 }

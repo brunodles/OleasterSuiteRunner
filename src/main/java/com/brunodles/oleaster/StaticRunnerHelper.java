@@ -3,6 +3,7 @@ package com.brunodles.oleaster;
 import com.mscharhag.oleaster.runner.Invokable;
 
 import static com.mscharhag.oleaster.runner.StaticRunnerSupport.describe;
+import static com.mscharhag.oleaster.runner.StaticRunnerSupport.it;
 
 @SuppressWarnings("WeakerAccess")
 public final class StaticRunnerHelper {
@@ -34,6 +35,10 @@ public final class StaticRunnerHelper {
         describe("With " + text, block);
     }
 
+    public static void then(String text, Invokable block) {
+        it(text, block);
+    }
+
     public static void xgiven(Class aClass, Invokable block) {}
 
     public static void xgiven(String text, Invokable block) {}
@@ -45,6 +50,8 @@ public final class StaticRunnerHelper {
     public static void xon(String text, Invokable block) {}
 
     public static void xwith(String text, Invokable block) {}
+
+    public static void xthen(String text, Invokable block) {}
 
     public static void xdescribe(String text, Invokable block) {}
 
