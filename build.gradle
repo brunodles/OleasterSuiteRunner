@@ -33,7 +33,7 @@ apply from: rootProject.file("gradle/scripter.gradle")
 def gitPath = "github.com/brunodles/OleasterSuiteRunner"
 ext.publishing = [
         group          : "com.brunodles",
-        version        : '0.1.1',
+        version        : '0.2.0',
         repo           : "TempRepo",
         name           : "Oleaster-SuiteRunner",
         artifact       : "oleaster-suiterunner",
