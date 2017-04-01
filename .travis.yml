@@ -3,10 +3,24 @@ language: java
 jdk:
   - oraclejdk8
 
+branches:
+  except:
+    - master
+    - gh-pages
+
 env:
   global:
     - JAVA7_HOME=/usr/lib/jvm/java-8-oracle
     - JAVA8_HOME=/usr/lib/jvm/java-8-oracle
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
 
 before_install:
   - chmod +x gradlew
@@ -18,7 +32,7 @@ deploy:
   provider: script
   script: ./gradlew bintrayUpload
   on:
-    branch: master
+    branch: release
 
 notifications:
   email: false
